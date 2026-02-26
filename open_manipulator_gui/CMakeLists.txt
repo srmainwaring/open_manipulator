@@ -21,7 +21,7 @@ find_package(moveit_msgs REQUIRED)
 find_package(moveit_ros_planning REQUIRED)
 find_package(moveit_ros_planning_interface REQUIRED)
 find_package(Eigen3 REQUIRED)
-find_package(Qt5 COMPONENTS Widgets REQUIRED)
+find_package(Qt6 COMPONENTS Widgets REQUIRED)
 
 ################################################################################
 # Define project sources and headers
@@ -113,15 +113,15 @@ file(MAKE_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/omy_f3m_gui)
 file(MAKE_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/omx_f_gui)
 
 # Generate UI headers
-qt5_wrap_ui(PROJECT_UI_HEADERS_open_manipulator_x ${PROJECT_UI_open_manipulator_x})
-qt5_wrap_ui(PROJECT_UI_HEADERS_OMY3M ${PROJECT_UI_OMY3M})
-qt5_wrap_ui(PROJECT_UI_HEADERS_OMYF3M ${PROJECT_UI_OMYF3M})
-qt5_wrap_ui(PROJECT_UI_HEADERS_OMXF ${PROJECT_UI_OMXF})
+qt6_wrap_ui(PROJECT_UI_HEADERS_open_manipulator_x ${PROJECT_UI_open_manipulator_x})
+qt6_wrap_ui(PROJECT_UI_HEADERS_OMY3M ${PROJECT_UI_OMY3M})
+qt6_wrap_ui(PROJECT_UI_HEADERS_OMYF3M ${PROJECT_UI_OMYF3M})
+qt6_wrap_ui(PROJECT_UI_HEADERS_OMXF ${PROJECT_UI_OMXF})
 
-qt5_wrap_cpp(PROJECT_MOCS_open_manipulator_x ${PROJECT_HEADERS_open_manipulator_x})
-qt5_wrap_cpp(PROJECT_MOCS_OMY3M ${PROJECT_HEADERS_OMY3M})
-qt5_wrap_cpp(PROJECT_MOCS_OMYF3M ${PROJECT_HEADERS_OMYF3M})
-qt5_wrap_cpp(PROJECT_MOCS_OMXF ${PROJECT_HEADERS_OMXF})
+qt6_wrap_cpp(PROJECT_MOCS_open_manipulator_x ${PROJECT_HEADERS_open_manipulator_x})
+qt6_wrap_cpp(PROJECT_MOCS_OMY3M ${PROJECT_HEADERS_OMY3M})
+qt6_wrap_cpp(PROJECT_MOCS_OMYF3M ${PROJECT_HEADERS_OMYF3M})
+qt6_wrap_cpp(PROJECT_MOCS_OMXF ${PROJECT_HEADERS_OMXF})
 
 ################################################################################
 # Build
@@ -153,7 +153,7 @@ target_link_libraries(open_manipulator_x_gui_node
   ${sensor_msgs_TARGETS}
   moveit_ros_planning_interface::moveit_move_group_interface
   ${EIGEN3_TARGETS}
-  Qt5::Widgets
+  Qt6::Widgets
 )
 
 add_dependencies(open_manipulator_x_gui_node copy_ui_headers)
@@ -187,7 +187,7 @@ target_link_libraries(omy_3m_gui_node
   ${sensor_msgs_TARGETS}
   moveit_ros_planning_interface::moveit_move_group_interface
   ${EIGEN3_TARGETS}
-  Qt5::Widgets
+  Qt6::Widgets
 )
 
 ################################################################################
@@ -219,7 +219,7 @@ target_link_libraries(omy_f3m_gui_node
   ${sensor_msgs_TARGETS}
   moveit_ros_planning_interface::moveit_move_group_interface
   ${EIGEN3_TARGETS}
-  Qt5::Widgets
+  Qt6::Widgets
 )
 
 ################################################################################
@@ -251,7 +251,7 @@ target_link_libraries(omx_f_gui_node
   ${sensor_msgs_TARGETS}
   moveit_ros_planning_interface::moveit_move_group_interface
   ${EIGEN3_TARGETS}
-  Qt5::Widgets
+  Qt6::Widgets
 )
 
 ################################################################################
