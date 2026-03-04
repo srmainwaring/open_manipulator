@@ -1,0 +1,43 @@
+---
+- gz_topic_name: "/clock"
+  gz_type_name: "gz.msgs.Clock"
+  ros_topic_name: "clock"
+  ros_type_name: "rosgraph_msgs/msg/Clock"
+  direction: GZ_TO_ROS
+
+- gz_topic_name: "/world/empty/model/open_manipulator_x/joint_state"
+  gz_type_name: "gz.msgs.Model"
+  ros_topic_name: "robot_joint_states"
+  ros_type_name: "sensor_msgs/msg/JointState"
+  direction: GZ_TO_ROS
+
+- gz_topic_name: "/model/open_manipulator_x/joint/joint1/0/cmd_pos"
+  gz_type_name: "gz.msgs.Double"
+  ros_topic_name: "joint1/cmd_pos"
+  ros_type_name: "std_msgs/msg/Float64"
+  direction: ROS_TO_GZ
+
+- gz_topic_name: "/model/open_manipulator_x/joint/joint2/0/cmd_pos"
+  gz_type_name: "gz.msgs.Double"
+  ros_topic_name: "joint2/cmd_pos"
+  ros_type_name: "std_msgs/msg/Float64"
+  direction: ROS_TO_GZ
+
+- gz_topic_name: "/model/open_manipulator_x/joint/joint3/0/cmd_pos"
+  gz_type_name: "gz.msgs.Double"
+  ros_topic_name: "joint3/cmd_pos"
+  ros_type_name: "std_msgs/msg/Float64"
+  direction: ROS_TO_GZ
+
+- gz_topic_name: "/model/open_manipulator_x/joint/joint4/0/cmd_pos"
+  gz_type_name: "gz.msgs.Double"
+  ros_topic_name: "joint4/cmd_pos"
+  ros_type_name: "std_msgs/msg/Float64"
+  direction: ROS_TO_GZ
+
+- gz_topic_name: "/model/open_manipulator_x/joint/gripper_left_joint/0/cmd_pos"
+  gz_type_name: "gz.msgs.Double"
+  ros_topic_name: "gripper_left_joint/cmd_pos"
+  ros_type_name: "std_msgs/msg/Float64"
+  direction: ROS_TO_GZ
+

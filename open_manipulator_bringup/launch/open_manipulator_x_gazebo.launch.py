@@ -115,6 +115,27 @@ def generate_launch_description():
         ],
     )
 
+    # ros2_control configuration (since not using gz_ros2_control)
+    ros2_control_file = os.path.join(
+        open_manipulator_bringup_path,
+        'config',
+        'open_manipulator_x',
+        'hardware_controller_manager.yaml',
+    )
+
+    # controller manager (since not using gz_ros2_control)
+    ros2_control_node = Node(
+            package="controller_manager",
+            executable="ros2_control_node",
+            parameters=[
+                ros2_control_file,
+                {"use_sim_time": True},
+            ],
+            remappings=[
+                ("/robot_description", "/robot_description"),
+            ],
+        )
+
     # Controller spawner nodes
     joint_state_broadcaster_spawner = Node(
         package='controller_manager',
@@ -141,11 +162,25 @@ def generate_launch_description():
         output='screen',
     )
 
+    # bridge = Node(
+    #     package='ros_gz_bridge',
+    #     executable='parameter_bridge',
+    #     arguments=['/clock@rosgraph_msgs/msg/Clock[gz.msgs.Clock'],
+    #     output='screen',
+    # )
+
+    bridge_config_file = os.path.join(
+        open_manipulator_bringup_path,
+        'config',
+        'open_manipulator_x',
+        'ros_gz_bridge.yaml',
+    )
+
     bridge = Node(
-        package='ros_gz_bridge',
-        executable='parameter_bridge',
-        arguments=['/clock@rosgraph_msgs/msg/Clock[gz.msgs.Clock'],
-        output='screen',
+        package="ros_gz_bridge",
+        executable="parameter_bridge",
+        parameters=[{"config_file": bridge_config_file}],
+        output="screen",
     )
 
     # rviz_config_file = os.path.join(
@@ -161,6 +196,7 @@ def generate_launch_description():
     # )
 
     return LaunchDescription([
+        ros2_control_node,
         RegisterEventHandler(
             event_handler=OnProcessExit(
                 target_action=gz_spawn_entity,
