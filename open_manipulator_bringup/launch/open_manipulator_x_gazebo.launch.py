@@ -196,7 +196,12 @@ def generate_launch_description():
     # )
 
     return LaunchDescription([
-        ros2_control_node,
+        RegisterEventHandler(
+            event_handler=OnProcessExit(
+                target_action=gz_spawn_entity,
+                on_exit=[ros2_control_node],
+            )
+        ),
         RegisterEventHandler(
             event_handler=OnProcessExit(
                 target_action=gz_spawn_entity,
