@@ -183,6 +183,13 @@ def generate_launch_description():
         output="screen",
     )
 
+    command_relay = Node(
+        package="open_manipulator_bringup",
+        executable="open_manipulator_x_cmd_relay",
+        parameters=[],
+        output="screen",
+    )
+
     # rviz_config_file = os.path.join(
     #     open_manipulator_description_path, 'rviz', 'open_manipulator.rviz'
     # )
@@ -220,5 +227,6 @@ def generate_launch_description():
         gazebo,
         node_robot_state_publisher,
         gz_spawn_entity,
+        command_relay,
         # rviz,
     ])
