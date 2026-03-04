@@ -30,7 +30,8 @@
     mock_sensor_commands="$(arg mock_sensor_commands)"
     port_name="$(arg port_name)"/>
 
-  <!-- <gazebo>
+  <!-- Disable in favour of Gazebo joint state controllers and ros_gz
+  <gazebo>
     <plugin filename="gz_ros2_control-system" name="gz_ros2_control::GazeboSimROS2ControlPlugin">
       <parameters>$(find open_manipulator_bringup)/config/open_manipulator_x/hardware_controller_manager.yaml</parameters>
     </plugin>
@@ -45,61 +46,61 @@
       filename="gz-sim-joint-position-controller-system">
       <joint_name>joint1</joint_name>
       <!-- <topic>/model/open_manipulator_x/joint/joint1/0/cmd_pos</topic> -->
-      <p_gain>2.0</p_gain>
-      <i_gain>0.0</i_gain>
+      <p_gain>5.0</p_gain>
+      <i_gain>0.5</i_gain>
       <d_gain>0.1</d_gain>
       <i_max>1</i_max>
       <i_min>-1</i_min>
-      <cmd_max>10.0</cmd_max>
-      <cmd_min>-10.0</cmd_min>
+      <cmd_max>100.0</cmd_max>
+      <cmd_min>-100.0</cmd_min>
     </plugin>
     <plugin name="gz::sim::systems::JointPositionController"
       filename="gz-sim-joint-position-controller-system">
       <joint_name>joint2</joint_name>
       <!-- <topic>/model/open_manipulator_x/joint/joint2/0/cmd_pos</topic> -->
-      <p_gain>2.0</p_gain>
-      <i_gain>0.0</i_gain>
+      <p_gain>5.0</p_gain>
+      <i_gain>0.5</i_gain>
       <d_gain>0.1</d_gain>
       <i_max>1</i_max>
       <i_min>-1</i_min>
-      <cmd_max>10.0</cmd_max>
-      <cmd_min>-10.0</cmd_min>
+      <cmd_max>100.0</cmd_max>
+      <cmd_min>-100.0</cmd_min>
     </plugin>
     <plugin name="gz::sim::systems::JointPositionController"
       filename="gz-sim-joint-position-controller-system">
       <joint_name>joint3</joint_name>
       <!-- <topic>/model/open_manipulator_x/joint/joint3/0/cmd_pos</topic> -->
-      <p_gain>2.0</p_gain>
-      <i_gain>0.0</i_gain>
+      <p_gain>5.0</p_gain>
+      <i_gain>0.5</i_gain>
       <d_gain>0.1</d_gain>
       <i_max>1</i_max>
       <i_min>-1</i_min>
-      <cmd_max>10.0</cmd_max>
-      <cmd_min>-10.0</cmd_min>
+      <cmd_max>100.0</cmd_max>
+      <cmd_min>-100.0</cmd_min>
     </plugin>
     <plugin name="gz::sim::systems::JointPositionController"
       filename="gz-sim-joint-position-controller-system">
       <joint_name>joint4</joint_name>
       <!-- <topic>/model/open_manipulator_x/joint/joint4/0/cmd_pos</topic> -->
-      <p_gain>2.0</p_gain>
+      <p_gain>5.0</p_gain>
       <i_gain>0.0</i_gain>
       <d_gain>0.1</d_gain>
       <i_max>1</i_max>
       <i_min>-1</i_min>
-      <cmd_max>10.0</cmd_max>
-      <cmd_min>-10.0</cmd_min>
+      <cmd_max>100.0</cmd_max>
+      <cmd_min>-100.0</cmd_min>
     </plugin>
     <plugin name="gz::sim::systems::JointPositionController"
       filename="gz-sim-joint-position-controller-system">
       <joint_name>gripper_left_joint</joint_name>
       <!-- <topic>/model/open_manipulator_x/joint/gripper_left_joint/0/cmd_pos</topic> -->
-      <p_gain>2.0</p_gain>
-      <i_gain>0.0</i_gain>
+      <p_gain>5.0</p_gain>
+      <i_gain>0.5</i_gain>
       <d_gain>0.1</d_gain>
       <i_max>1</i_max>
       <i_min>-1</i_min>
-      <cmd_max>10.0</cmd_max>
-      <cmd_min>-10.0</cmd_min>
+      <cmd_max>100.0</cmd_max>
+      <cmd_min>-100.0</cmd_min>
     </plugin>
 
   </gazebo>
